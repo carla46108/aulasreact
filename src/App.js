@@ -7,6 +7,8 @@ import axios from 'axios'
 import { Link, Route, BrowserRouter as Router, Routes } from 'react-router-dom'
 import FormPage from './form/FormPage'
 import TablePage from './table/TablePage'
+import HomePage from './home/HomePage'
+import NotFoudPage from './notfound/NotFoudPage'
 
 
 const App = props => {
@@ -21,9 +23,12 @@ const App = props => {
       <Router>
         <div ><Link to={"/form"}>Form</Link></div>
         <div ><Link to={"/table"}>Table</Link></div>
+        <div><Link to={"/"}>HomePage</Link></div>      
         <Routes>
-          <Route path='form' element={<FormPage />} />
-          <Route path='table' element={<TablePage />} />
+          <Route path='/form' element={<FormPage />} />
+           <Route path='*' element={<NotFoudPage />} />
+          <Route path='/table' element={<TablePage />} />
+          <Route index element={<HomePage />} />
         </Routes>
       </Router>
     </div>
